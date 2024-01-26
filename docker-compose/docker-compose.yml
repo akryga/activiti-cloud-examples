@@ -11,7 +11,7 @@ services:
       - POSTGRES_USER=activiti
       - POSTGRES_DB=activitidb
     volumes:
-      - "/opt/pgdata:/var/lib/postgresql/data"
+      - pgdata:/var/lib/postgresql/data
     restart: unless-stopped
 
   nginx:
@@ -33,7 +33,7 @@ services:
       - 61613:61613
     volumes:
       - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
-      - /opt/rabbitmq-data
+      - /rabbitmq-data
     restart: unless-stopped
 
   keycloak:
